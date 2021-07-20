@@ -46,6 +46,19 @@ export class TasksService {
     }
     return found;
   }
+
+  async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
+    const { title, description } = createTaskDto;
+
+    const task = this.tasksRepository.create({
+      title,
+      description,
+      status: TaskStatus.OPEN,
+    });
+
+    await this.tasksRepository.save(task);
+    return task;
+  }
 //   getTaskById(id: string): Task {
 //     const found = this.tasks.find((task) => task.id === id);
 //     if (!found) {
