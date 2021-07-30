@@ -10,7 +10,7 @@ export class TasksRepository extends Repository<Task> {
     const query = this.createQueryBuilder('task');
     if (status) {
       query.andWhere('task.status = :status', { status });
-   }
+    }
     if (search) {
       query.andWhere(
         'LOWER(task.tile) LIKE LOWER(:search) || LOWER (task.description) LIKE LOWER (:search)',
@@ -20,7 +20,7 @@ export class TasksRepository extends Repository<Task> {
     const tasks = await query.getMany();
     return tasks;
   }
-  async createTask(createTaskDto: CreateTaskDto): Promise<Task>{
+  async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
     const { title, description } = createTaskDto;
     const task = this.create({
       title,
