@@ -15,7 +15,7 @@ export class TasksRepository extends Repository<Task> {
     }
     if (search) {
       query.andWhere(
-        'LOWER(task.tile) LIKE LOWER(:search) || LOWER (task.description) LIKE LOWER (:search)',
+        '(LOWER(task.tile) LIKE LOWER(:search) || LOWER (task.description) LIKE LOWER (:search))',
         { search: `%${search}%` },
       );
     }
