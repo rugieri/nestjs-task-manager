@@ -43,7 +43,7 @@
     "rxjs": "7",
     "set-value": "4.0.1",
     "shelljs": "0.8.5",
-    "typeorm": "^0.2.34"
+    "typeorm": "^0.3.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
